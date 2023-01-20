@@ -6,7 +6,7 @@ require('dotenv').config();
 const {API_KEY} = process.env
 
 router.get('/', async (req, res) => {
-    const tempers = await axios('https://api.thedogapi.com/v1/breeds')
+    const tempers = await axios(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
     const ropes = await tempers.data
 
     const temp = [...new Set(ropes.map(e => e.temperament).toString().split(",").map(e=>{
