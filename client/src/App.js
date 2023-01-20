@@ -5,7 +5,7 @@ import Home from './components/Home'
 import Detail from './components/Detail'
 import CreateDog from './components/CreateDog'
 import axios from 'axios'
-axios.defaults.baseURL = 'http://localhost:3001/'
+axios.defaults.baseURL = 'https://dogs-production-139f.up.railway.app/'
 
 function App() {
   return (
