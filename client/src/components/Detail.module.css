@@ -1,0 +1,29 @@
+.card {
+    background: #84A98C;
+    padding: .5rem;
+    border: 1px outset #2F3E46;
+    border-radius: .4rem;
+    width: 20vw;
+    margin: auto;
+    box-shadow: 0 15px 70px 0 #84A98C;
+    transition: 0.3s;
+  }
+
+  .cardheader {
+    margin-bottom: .1rem;
+    font-size: 0.8rem;
+    color: #2F3E46;
+  }
+  
+  .cardfooter {
+    margin-top: .1rem;
+    color: #354F52;
+  }
+
+  img {
+    width: 100%;
+    height: 15vw;
+    object-fit: scale-down;
+  }
+
+ 

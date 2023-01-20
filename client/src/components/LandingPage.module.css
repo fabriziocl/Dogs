@@ -1,0 +1,36 @@
+.bgImage {
+    background: url("snoop-dogg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* height: 85vh; */
+    position: absolute;
+    top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+    z-index: -1;
+}
+
+.button {
+  background-color: #2F3E46;
+  border: 2px solid #84A98C;
+  border-radius: 12px;
+  color: #CAD2C5;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button:hover{
+    background-color: #52796F;
+    color: #84A98C;
+  }
+
+.title h1 {
+	text-shadow: 10px 10px #2F3E46;
+	margin-bottom: 15px;
+}

@@ -1,0 +1,26 @@
+.button {
+  background-color: #2F3E46;
+  color: #CAD2C5;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 4px;
+  border: 2px solid #84A98C;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button:hover{
+  background-color: #52796F;
+  color: #84A98C;
+}
+
+.pagination li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+.active {
+  background-color: #52796F;
+  color: #84A98C;
+}
