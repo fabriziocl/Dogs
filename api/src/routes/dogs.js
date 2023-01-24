@@ -51,7 +51,6 @@ router.post('/', async (req, res) => {
     }
 })
 
-/*
 router.put('/', async(req, res) => {
     const { name, height, weight, lifeSpan, image, temperament } = req.body
     if(!name || !height || !weight || !lifeSpan ||!image || !temperament){
@@ -79,6 +78,7 @@ router.put('/', async(req, res) => {
         updatedDog.addTemperament(updatedRace)
         res.status(201).send('Dog race updated successfully')
    } catch(error){
+    console.error(error)
     res.status(404).send('Data does not meet required parameters')
    }
 })
@@ -86,17 +86,22 @@ router.put('/', async(req, res) => {
 router.delete('/', async (req, res) => {
     let {name} = req.query
     const everyDbDog = getFromDb()
+    try {
+        if(name){
+            let dogName = await everyDbDog.filter(dog => dog.name.toLowerCase() == name.toLowerCase())
+            await Dog.destroy({
+                where: {
+                    name: name
+                }
+            })
+            dogName.length > 0 ?
+                res.status(200).send('Dog race deleted successfully') :
+                res.status(404).send('Dog race not found')
+    }
+    } catch (error) {
+        console.error(error)
+        res.status(500).send({error: 'An error ocurred'})
+    }
+    })
 
-    if(name){
-        let dogName = await everyDog.filter(dog => dog.name.toLowerCase() == name.toLowerCase())
-        await Dog.destroy({
-            where: {
-                name: name
-            }
-        })
-        dogName.length > 0 ?
-            res.status(200).send('Dog race deleted successfully') :
-            res.status(404).send('Dog race not found')
-})
-*/
 module.exports = router
