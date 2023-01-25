@@ -43,7 +43,7 @@ export default function Detail(props) {
                         <h5>{!dog[0].weight.includes("NaN") ? dog[0].weight + " kg" : "Unknown weight"}</h5>
                         <h3>Lifespan: </h3>
                         <h5>{dog[0].lifeSpan.includes("years") ? dog[0].lifeSpan : dog[0].lifeSpan + " years"}</h5>
-                        <button onClick={handleDelete} value={dog[0].name}>Delete {dog[0].name}</button>
+                        {dog[0].userCreated && <button onClick={handleDelete} value={dog[0].name}>Delete {dog[0].name}</button>}
                     </div> :
                     <p><strong>Loading...</strong></p>
             }
