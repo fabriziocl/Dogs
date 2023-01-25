@@ -48,11 +48,28 @@ export function getDetail(idRaza){
     }
 }
 
+export function deleteDog(name){
+    return async function(dispatch){
+        try {
+            const response = await axios.delete(`/dogs?name=${name}`)
+            if(response.status === 200){
+                dispatch({
+                    type: 'DELETE_DOG',
+                    payload: name
+                })
+            } else if(response.status === 404){
+                console.error('Dog not found')
+            }
+        }
+        catch (err) {
+            console.error(err)
+        }
+    }
+}
+
 export function getTemperaments(){
     return async function (dispatch) {
-        let json = await axios.get('/temperaments', {
-
-        })
+        let json = await axios.get('/temperaments')
         return dispatch({
             type: 'GET_TEMPERAMENTS',
             payload: json.data

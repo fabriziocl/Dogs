@@ -1,9 +1,8 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getDetail } from '../actions'
+import { getDetail, clearPage, deleteDog} from '../actions'
 import { useEffect } from "react";
-import { clearPage } from "../actions";
 import st from './Detail.module.css'
 
 export default function Detail(props) {
@@ -11,6 +10,7 @@ export default function Detail(props) {
 
     const dispatch = useDispatch();
     const { id } = useParams(state => state.detail)
+    const history = useHistory()
 
     useEffect(() => {
         dispatch(getDetail(id));
@@ -18,6 +18,11 @@ export default function Detail(props) {
             dispatch(clearPage())
         }
     }, [dispatch, id]);
+
+    function handleDelete(){
+        dispatch(deleteDog(dog[0].name))
+        history.push('/home')
+    }
    
     const dog = useSelector((state) => state.detail)
     // const temperament = dog[0].temperament
@@ -38,6 +43,7 @@ export default function Detail(props) {
                         <h5>{!dog[0].weight.includes("NaN") ? dog[0].weight + " kg" : "Unknown weight"}</h5>
                         <h3>Lifespan: </h3>
                         <h5>{dog[0].lifeSpan.includes("years") ? dog[0].lifeSpan : dog[0].lifeSpan + " years"}</h5>
+                        <button onClick={handleDelete} value={dog[0].name}>Delete {dog[0].name}</button>
                     </div> :
                     <p><strong>Loading...</strong></p>
             }

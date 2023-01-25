@@ -29,6 +29,12 @@ function rootReducer(state = initialState, { type, payload }) {
                 ...state,
                 error: payload
             }
+        case 'DELETE_DOG':
+            const nonDeletedDogs = state.dogs.filter(dog => dog.name.toLowerCase() !== payload.name.toLowerCase())
+            return {
+                ...state,
+                dogs: nonDeletedDogs
+            }
         case 'GET_DETAIL':
             return {
                 ...state,
