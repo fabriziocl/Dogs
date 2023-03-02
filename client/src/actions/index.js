@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export function getDogs(){
-    return async function(dispatch){
+export function getDogs() {
+    return async function (dispatch) {
         var json = await axios.get('/dogs');
         return dispatch({
             type: 'GET_DOGS',
@@ -10,9 +10,9 @@ export function getDogs(){
     }
 }
 
-export function getRaceName(name){
-    return async function(dispatch){
-        try{
+export function getRaceName(name) {
+    return async function (dispatch) {
+        try {
             var json = await axios(`/dogs?name=${name}`)
             dispatch({
                 type: 'GET_RACE_NAME',
@@ -22,8 +22,8 @@ export function getRaceName(name){
                 type: 'RESET_ERROR',
                 payload: null
             })
-        } catch(err){
-            if(err.response.status === 404){
+        } catch (err) {
+            if (err.response.status === 404) {
                 return dispatch({
                     type: 'GET_RACE_NAME_ERROR',
                     payload: "Dog race not found"
@@ -34,8 +34,8 @@ export function getRaceName(name){
     }
 }
 
-export function getDetail(idRaza){
-    return async function(dispatch){
+export function getDetail(idRaza) {
+    return async function (dispatch) {
         try {
             var json = await axios.get(`/dogs/${idRaza}`)
             return dispatch({
@@ -48,16 +48,16 @@ export function getDetail(idRaza){
     }
 }
 
-export function deleteDog(name){
-    return async function(dispatch){
+export function deleteDog(name) {
+    return async function (dispatch) {
         try {
             const response = await axios.delete(`/dogs?name=${name}`)
-            if(response.status === 200){
+            if (response.status === 200) {
                 dispatch({
                     type: 'DELETE_DOG',
                     payload: name
                 })
-            } else if(response.status === 404){
+            } else if (response.status === 404) {
                 console.error('Dog not found')
             }
         }
@@ -67,7 +67,7 @@ export function deleteDog(name){
     }
 }
 
-export function getTemperaments(){
+export function getTemperaments() {
     return async function (dispatch) {
         let json = await axios.get('/temperaments')
         return dispatch({
@@ -91,30 +91,30 @@ export function userCreated(payload) {
     }
 }
 
-export function orderByNameOrWeight(payload){
+export function orderByNameOrWeight(payload) {
     return {
         type: 'ORDER_BY_NAME_OR_WEIGHT',
         payload
     }
 }
 
-export function clearPage(){
+export function clearPage() {
     return {
         type: 'CLEAR_PAGE'
     }
 }
 
-export function postDog(payload){
-     return async (dispatch) => {
+export function postDog(payload) {
+    return async (dispatch) => {
         console.log(payload)
         try {
-             const res = await axios.post('/dogs', payload);
-             dispatch({
-                 type: 'POST_DOG',
-                 payload: res.data
-             });
-         } catch (error) {
-             console.error(error);
-         }
+            const res = await axios.post('/dogs', payload);
+            dispatch({
+                type: 'POST_DOG',
+                payload: res.data
+            });
+        } catch (error) {
+            console.error(error);
+        }
     }
 }
