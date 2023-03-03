@@ -6,7 +6,7 @@ import Detail from './components/Detail'
 import CreateDog from './components/CreateDog'
 import axios from 'axios'
 // axios.defaults.baseURL = 'https://dogs-production-139f.up.railway.app/'
-axios.defaults.baseURL = 'https://dogs-backend-server.onrender.com'
+axios.defaults.baseURL = 'https://dogs-backend-server.onrender.com/'
 
 function App() {
   return (
