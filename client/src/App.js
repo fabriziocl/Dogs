@@ -9,8 +9,8 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import NavBar from "./components/NavBar";
 // axios.defaults.baseURL = 'https://dogs-production-139f.up.railway.app/'
-// axios.defaults.baseURL = 'https://dogs-backend-server.onrender.com/'
-axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL = 'https://dogs-backend-server.onrender.com/'
+// axios.defaults.baseURL = "http://localhost:3001";
 
 function App() {
   return (
