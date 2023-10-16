@@ -1,6 +1,14 @@
+html {
+  height: 100%;
+}
+
 .App {
   text-align: center;
   font-family: 'Fira Sans Condensed', sans-serif;
+  /* position: relative; */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* 

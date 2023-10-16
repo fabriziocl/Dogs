@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRaceName } from '../actions'
+import { toast } from "react-toastify";
 import st from'./SearchBar.module.css'
 
 export default function SearchBar({setCurrentPage}){
@@ -32,7 +33,7 @@ export default function SearchBar({setCurrentPage}){
             <button
                 type="submit"
                 onClick={handleSubmit}
-                >Search dog race
+                >Search
             </button>
             {error && error.length > 0 && <p>{error}</p>}
         </div>

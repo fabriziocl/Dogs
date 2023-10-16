@@ -2,6 +2,9 @@ import React, {useEffect, useState} from "react";
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { postDog, getTemperaments} from '../actions'
+import { toast } from "react-toastify";
+import Footer from "./Footer";
+import st from './CreateDog.module.css'
 
 
 export default function CreateDog() {
@@ -65,7 +68,7 @@ export default function CreateDog() {
             image: input.image,
             temperament: [...input.temperaments]
           }))
-          alert('New race successfully created!')
+          toast.success('New race successfully created!')
           setInput({
             name: '',
             minHeight: '',
@@ -129,6 +132,7 @@ export default function CreateDog() {
 
     return (
       <div>
+      <div className={st['container']}>
         <Link to='/home'>
           <button>Back</button>
         </Link>
@@ -234,6 +238,8 @@ export default function CreateDog() {
             <button type='submit' >Create dog race</button>
         </form>
         
+        </div>
+        <Footer />
         </div>
     )
 }

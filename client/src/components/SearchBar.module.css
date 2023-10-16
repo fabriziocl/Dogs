@@ -15,11 +15,16 @@
 input {
     color: black;
     background-color: rgb(245, 250, 248);
-    width: 150px;
+    width: 20vw;
     -webkit-transition: width .35s ease-in-out;
     transition: width .35s ease-in-out;
+    padding: 6px 10px;
+    margin: 8px 0;
+    border: 2px solid #84A98C;
+    border-radius: 4px;
+    outline: none;
 }
 input:focus {
     background-color: #e2e7e0; 
-    width: 250px;
+    width: 30vw;
 }

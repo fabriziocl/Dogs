@@ -6,7 +6,7 @@ import Card from "./Card";
 import Pagination from "./Pagination";
 import SearchBar from "./SearchBar";
 import st from './Home.module.css'
-
+import Footer from "./Footer";
 
 export default function Home() {
     const dispatch = useDispatch()
@@ -36,14 +36,14 @@ export default function Home() {
     function handleFilterByTemperament(e) {
         setCurrentPage(1)
         dispatch(filterByTemperament(e.target.value));
-      }
+    }
 
-    function handleUserCreated(e){
+    function handleUserCreated(e) {
         dispatch(userCreated(e.target.value))
         setCurrentPage(1)
     }
-    
-    function handleOrderByNameOrWeight(e){
+
+    function handleOrderByNameOrWeight(e) {
         e.preventDefault()
         dispatch(orderByNameOrWeight(e.target.value))
         setCurrentPage(1)
@@ -51,43 +51,40 @@ export default function Home() {
     }
 
     return (
-        <div>
-            <Link to='/dog'>
-                Dog creation
-            </Link>
-            <h1>FCL's dog API</h1>
-            <button onClick={e => handleClick(e)}>
-                Click to reload all dogs
-            </button>
+        <div className={st.container}>
+
             <div>
-            <SearchBar 
-            setCurrentPage={setCurrentPage}
-            />
-            <select onChange={handleFilterByTemperament}>
-                <option disabled selected>Filter by temperament</option>
-                {allTemperaments?.map(t =>  (
-                    t.name.length > 0 &&
-                    <option key={t.id} value={t.name}>{t.name}</option>
-                ))}
-            </select>
-            <select onChange={handleUserCreated}>
-                <option disabled selected>Filter by creation</option>
-                <option value="api">Dogs from The Dog API</option>
-                <option value="created">User created</option>
-            </select>
-            <select onChange={handleOrderByNameOrWeight}>
-                <option disabled selected>Order by name or weight</option>
-                <option value="asc">Name: ascending</option>
-                <option value="desc">Name: descending</option>
-                <option value="weight-asc">Weight: ascending</option>
-                <option value="weight-desc">Weight: descending</option>
-            </select>
-            <Pagination
+                <SearchBar
+                    setCurrentPage={setCurrentPage}
+                />
+                <select onChange={handleFilterByTemperament}>
+                    <option disabled selected>Filter by temperament</option>
+                    {allTemperaments?.map(t => (
+                        t.name.length > 0 &&
+                        <option key={t.id} value={t.name}>{t.name}</option>
+                    ))}
+                </select>
+                <select onChange={handleUserCreated}>
+                    <option disabled selected>Filter by creation</option>
+                    <option value="api">Dogs from The Dog API</option>
+                    <option value="created">User created</option>
+                </select>
+                <select onChange={handleOrderByNameOrWeight}>
+                    <option disabled selected>Order by name or weight</option>
+                    <option value="asc">Name: ascending</option>
+                    <option value="desc">Name: descending</option>
+                    <option value="weight-asc">Weight: ascending</option>
+                    <option value="weight-desc">Weight: descending</option>
+                </select>
+                <button onClick={e => handleClick(e)}>
+                    Reset parameters
+                </button>
+                <Pagination
                     dogsPerPage={dogsPerPage}
                     allDogs={allDogs.length}
                     pagination={pagination}
                     currentPage={currentPage}
-            />
+                />
                 <div className={st.cardContainer}>
                     {currentDogs?.map((e) => {
                         return (
@@ -106,6 +103,7 @@ export default function Home() {
                     })}
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

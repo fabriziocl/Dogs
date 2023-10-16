@@ -2,6 +2,7 @@ const { Router } = require('express');
 const router = Router();
 const { Dog, Temperament } = require('../db') 
 const getAllDogs = require('../functions/getAllDogs')
+const getFromDb = require('../functions/getFromDb')
 
 router.get('/', async (req, res) => {  
     const {name} = req.query; 
@@ -85,7 +86,7 @@ router.put('/', async(req, res) => {
 
 router.delete('/', async (req, res) => {
     let {name} = req.query
-    const everyDbDog = getFromDb()
+    const everyDbDog = await getFromDb()
     try {
         if(name){
             let dogName = await everyDbDog.filter(dog => dog.name.toLowerCase() == name.toLowerCase())

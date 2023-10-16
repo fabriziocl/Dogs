@@ -1,0 +1,11 @@
+.container {
+    height: 100%;
+    border-radius: 40px;
+    background-color: #84A98C;
+    padding: 2rem;
+    margin-top: 70px;
+    margin-bottom: 8vw;
+    margin-left: 20vw;
+    margin-right: 20vw;
+}
+
