@@ -7,6 +7,8 @@ import Pagination from "./Pagination";
 import SearchBar from "./SearchBar";
 import st from './Home.module.css'
 import Footer from "./Footer";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export default function Home() {
     const dispatch = useDispatch()
@@ -86,21 +88,29 @@ export default function Home() {
                     currentPage={currentPage}
                 />
                 <div className={st.cardContainer}>
-                    {currentDogs?.map((e) => {
-                        return (
-                            <div key={e.id}>
-                                <Link to={'/dog-detail/' + e.id}>
-                                    <Card key={e.id}
-                                        name={e.name}
-                                        image={e.image}
-                                        temperament={e.temperament}
-                                        temperaments={e.temperaments}
-                                        weight={e.weight}
-                                    />
-                                </Link>
-                            </div>
-                        )
-                    })}
+                    {currentDogs.length === 0 ? (
+                        <>
+                            <Skeleton className={st.skeletonImg} baseColor="#b0c4b1" highlightColor="#98b7a0" />
+                            <Skeleton className={st.skeletonText} baseColor="#b0c4b1" highlightColor="#98b7a0" />
+                            <Skeleton className={st.skeletonText} baseColor="#b0c4b1" highlightColor="#98b7a0" />
+                        </>
+                    ) : (
+                        currentDogs?.map((e) => {
+                            return (
+                                <div key={e.id}>
+                                    <Link to={'/dog-detail/' + e.id}>
+                                        <Card
+                                            name={e.name}
+                                            image={e.image}
+                                            temperament={e.temperament}
+                                            temperaments={e.temperaments}
+                                            weight={e.weight}
+                                        />
+                                    </Link>
+                                </div>
+                            );
+                        })
+                    )}
                 </div>
             </div>
             <Footer />

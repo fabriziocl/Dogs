@@ -11,6 +11,22 @@
     padding-bottom: 60px;
 }
 
+.skeletonImg {
+    width: 100%;
+    height: 15vw;
+    background-color: #b0c4b1;
+    border-radius: 4px;
+}
+
+.skeletonText {
+    width: 60%;
+    height: 1vw;
+    background-color: #b0c4b1;
+    border-radius: 4px;
+    margin-bottom: 0.8rem;
+    padding: 0.5rem 0;
+}
+
 select {
     background-color: #2F3E46;
     color: #CAD2C5;

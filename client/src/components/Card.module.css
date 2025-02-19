@@ -27,6 +27,35 @@
   color: #354F52;
 }
 
+.skeletonImg {
+  width: 100%;
+  height: 15vw;
+  background-color: #b0c4b1;
+  border-radius: 4px;
+  padding: 10%, 0;
+  margin-bottom: 0.6rem;
+}
+
+.skeletonText {
+  width: 60%;
+  height: 0.5rem;
+  background-color: #b0c4b1;
+  border-radius: 4px;
+  margin-bottom: 0.6rem;
+  padding: 0.3rem 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.image {
+  width: 100%;
+  height: 15vw;
+  object-fit: scale-down;
+  transition: opacity 0.3s ease-in-out;
+}
+
 a {
   text-decoration: none;
 }
