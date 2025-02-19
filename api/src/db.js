@@ -52,15 +52,17 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-const {
-  DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_PORT
-} = process.env;
+const { DATABASE_URL } = process.env;
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`, {
+// Utilizamos la URL completa que viene en DATABASE_URL
+const sequelize = new Sequelize(DATABASE_URL, {
   logging: false,
   native: false,
   dialectOptions: {
-    ssl: false
+    ssl: {
+      require: true,  // Activa SSL
+      rejectUnauthorized: false // Puede ser necesario dependiendo del servidor
+    }
   }
 });
 
