@@ -1,8 +1,9 @@
 import React from 'react'
+import st from './Contact.module.css'
 
 const Contact = () => {
   return (
-    <div>
+    <div className={st.container}>
         Contact form
     </div>
   )
