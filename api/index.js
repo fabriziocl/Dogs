@@ -24,4 +24,4 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 // Exporta la aplicación Express envuelta con serverless-http
-module.exports.handler = serverless(server);
+module.exports = serverless(server);
