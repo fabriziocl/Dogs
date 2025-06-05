@@ -23,23 +23,16 @@
 //   });
 // }
 
-// // Exporta la aplicación Express envuelta con serverless-http
 // module.exports = serverless(server);
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
 require("dotenv").config();
 
 const { PORT } = process.env;
-
-// Sin necesidad de usar server.listen, Vercel maneja esto automáticamente
-// No necesitamos el handler aquí tampoco
-
-// Sync de Sequelize (solo en desarrollo)
 if (process.env.NODE_ENV !== "production") {
   conn.sync({ alter: true }).then(() => {
     console.log("DB synced");
   });
 }
 
-// Exportamos directamente el servidor
 module.exports = server;
