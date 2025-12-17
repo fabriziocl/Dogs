@@ -5,10 +5,12 @@ const { Router } = require('express');
 const router = Router();
 const dogs = require('./dogs');
 const temperaments = require('./temperaments');
+const ping = require('./ping');
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
+router.use('/ping', ping);
 router.use('/dogs', dogs);
 router.use('/temperaments', temperaments)
 
