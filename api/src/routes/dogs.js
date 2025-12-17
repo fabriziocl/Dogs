@@ -105,8 +105,5 @@ router.delete('/', async (req, res) => {
     }
     })
 
-router.get('/ping', (req, res) => {
-  res.json({ ok: true });
-});
 
 module.exports = router
