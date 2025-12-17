@@ -10,8 +10,8 @@
   "author": "Henry",
   "license": "ISC",
   "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=8.0.0"
+    "node": "20.x",
+    "npm": "10.x"
   },
   "dependencies": {
     "@types/express": "^5.0.0",
