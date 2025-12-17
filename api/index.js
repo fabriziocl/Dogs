@@ -10,13 +10,12 @@
 //   });
 // });
 
-// const server = require("./src/app.js"); // Aquí está tu aplicación Express
+// const server = require("./src/app.js"); 
 // const { conn } = require("./src/db.js"); 
 // const serverless = require("serverless-http");
 // require("dotenv").config();
 
 
-// // Sincroniza Sequelize solo en desarrollo
 // if (process.env.NODE_ENV !== "production") {
 //   conn.sync({ alter: true }).then(() => {
 //     console.log("Database synced");
@@ -24,15 +23,20 @@
 // }
 
 // module.exports = serverless(server);
-const server = require("./src/app.js");
-const { conn } = require("./src/db.js");
-require("dotenv").config();
 
-const { PORT } = process.env;
-if (process.env.NODE_ENV !== "production") {
-  conn.sync({ alter: true }).then(() => {
-    console.log("DB synced");
-  });
-}
+// const server = require("./src/app.js");
+// const { conn } = require("./src/db.js");
+// require("dotenv").config();
 
-module.exports = server;
+// const { PORT } = process.env;
+// if (process.env.NODE_ENV !== "production") {
+//   conn.sync({ alter: true }).then(() => {
+//     console.log("DB synced");
+//   });
+// }
+
+// module.exports = server;
+
+const app = require('../src/app');
+
+module.exports = app;
